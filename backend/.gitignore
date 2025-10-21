@@ -24,13 +24,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-
-node_modules
-dist
-.git
-.gitignore
-.env
-.vscode
-.idea
-.DS_Store

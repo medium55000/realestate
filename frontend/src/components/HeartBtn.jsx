@@ -3,7 +3,7 @@ import { FaHeart } from 'react-icons/fa6';
 import useAuthCheck from '../hooks/useAuthCheck';
 import { useMutation } from 'react-query';
 import { useAuth0 } from '@auth0/auth0-react';
-import UserDetailContext from '../context/userDetailContext';
+import UserDetailContext from '../context/UserDetailContext.js';
 import { toFav } from '../utils/api';
 import { checkFavourites, updateFavourites } from '../utils/common';
 

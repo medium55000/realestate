@@ -3,7 +3,7 @@ import Searchbar from '../components/Searchbar';
 import useProperties from '../hooks/useProperties';
 import { PuffLoader } from 'react-spinners';
 import Item from '../components/Item';
-import UserDetailContext from '../context/userDetailContext';
+import UserDetailContext from '../context/UserDetailContext';
 
 const Favourites = () => {
   const { data, isError, isLoading } = useProperties();

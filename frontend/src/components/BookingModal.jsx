@@ -4,7 +4,7 @@ import { DatePicker } from '@mantine/dates';
 import { Calendar } from '@mantine/dates';
 import { Month } from '@mantine/dates';
 import { useMutation } from 'react-query';
-import UserDetailContext from '../context/userDetailContext';
+import UserDetailContext from '../context/UserDetailContext';
 import { bookVisit } from '../utils/api';
 import { toast } from 'react-toastify';
 import dayjs from 'dayjs';

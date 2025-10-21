@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import 'react-toastify/dist/ReactToastify.css';
 import Property from './pages/Property.jsx';
-import UserDetailContext from './context/userDetailContext.js';
+import UserDetailContext from './context/UserDetailContext.js';
 import Layout from './components/Layout.jsx';
 import Favourites from './pages/Favourites.jsx';
 import Bookings from './pages/Bookings.jsx';

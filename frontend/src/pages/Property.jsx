@@ -17,7 +17,7 @@ import {
 import { FaLocationDot } from 'react-icons/fa6';
 import { CgRuler } from 'react-icons/cg';
 import HeartBtn from '../components/HeartBtn';
-import UserDetailContext from '../context/userDetailContext';
+import UserDetailContext from '../context/UserDetailContext';
 
 const Property = () => {
   const { pathname } = useLocation();
