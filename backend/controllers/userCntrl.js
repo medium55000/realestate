@@ -175,7 +175,7 @@ export const toFav = asyncHandler(async (req, res) => {
   } catch (err) {
     // Log error
     console.error('Error in toFav function:', err.message);
-    res.status(500).send({ message: 'Internal server error ' });
+    res.status(500).send({ message: 'Internal server error' });
   }
 });
 

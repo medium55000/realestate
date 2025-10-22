@@ -1,21 +1,26 @@
-#Envirnoment files
+# =============================
+# Environment / Config files
+# =============================
 .env
-.env.local
-.env.development
-.env.production
+.env.*
+!.env.example
 
+# =============================
 # Build output
+# =============================
 dist/
 build/
 
-#Logs
-*.log
+# =============================
+# Dependencies
+# =============================
+node_modules/
+dist-ssr/
 
-#DS_Store
-Thumbs.db
-
+# =============================
 # Logs
-logs
+# =============================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -23,19 +28,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# =============================
+# OS / Editor files
+# =============================
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
->>>>>>> b460cba (Initial commit)
+
+# =============================
+# IDE / Editor folders
+# =============================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# =============================
+# Miscellaneous
+# =============================
+*.local

@@ -39,12 +39,10 @@ jobs:
           gcloud auth list
           gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)"
 
-      # ---- 로그인 1: 표준 방법
       - name: Configure docker to GAR (standard)
         run: |
           gcloud auth configure-docker $REGION-docker.pkg.dev --quiet
 
-      # ---- 로그인 2: 대안 방법 (표준이 안 되면 이 방법으로 푸시됨)
       - name: Configure docker to GAR (access-token)
         run: |
           gcloud auth print-access-token | \
