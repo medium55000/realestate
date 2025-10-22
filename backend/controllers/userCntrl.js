@@ -173,7 +173,8 @@ export const toFav = asyncHandler(async (req, res) => {
       res.send({ message: 'Updated favorites', user: updateUser });
     }
   } catch (err) {
-    console.error('Error in toFav function:', err.message); // Log error
+    // Log error
+    console.error('Error in toFav function:', err.message);
     res.status(500).send({ message: 'Internal server error' });
   }
 });
