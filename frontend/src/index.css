@@ -8,11 +8,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-.font-ace{
-  font-family: "Bruno Ace", sans-serif;
+.font-ace {
+  font-family: 'Bruno Ace', sans-serif;
 }
 
 /* width */
@@ -38,8 +38,7 @@
 }
 
 @layer base {
-  
-  .active-link{
+  .active-link {
     @apply bg-secondary text-white;
   }
 
@@ -58,32 +57,30 @@
   p {
     @apply leading-[1.3] text-[14px] text-gray-30;
   }
-  
 }
 
 @layer utilities {
-
-  .btn-white  { 
-    @apply  medium-15 bg-white px-7 py-3 text-tertiary
+  .btn-white {
+    @apply medium-15 bg-white px-7 py-3 text-tertiary;
   }
 
-  .btn-light  { 
-    @apply  medium-15 bg-primary px-7 py-3 text-tertiary
+  .btn-light {
+    @apply medium-15 bg-primary px-7 py-3 text-tertiary;
   }
 
-  .btn-secondary { 
-    @apply  ring-1 ring-tertiary medium-15 bg-tertiary px-7 py-[10px] text-white transition-all hover:bg-tertiary/90
+  .btn-secondary {
+    @apply ring-1 ring-tertiary medium-15 bg-tertiary px-7 py-[10px] text-white transition-all hover:bg-tertiary/90;
   }
 
-  .btn-secondary-outline { 
-    @apply  ring-1 ring-tertiary medium-15 bg-transparent px-7 py-[10px] text-tertiary transition-all hover:bg-tertiary hover:text-white
+  .btn-secondary-outline {
+    @apply ring-1 ring-tertiary medium-15 bg-transparent px-7 py-[10px] text-tertiary transition-all hover:bg-tertiary hover:text-white;
   }
 
-  .btn-secondary  { 
-    @apply  ring-1 ring-secondary medium-15 bg-secondary px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary 
+  .btn-secondary {
+    @apply ring-1 ring-secondaryBlue medium-15 bg-secondaryBlue px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary;
   }
-  .btn-secondary-outline  { 
-    @apply  ring-1 ring-secondary medium-15 bg-white px-7 py-[10px] text-secondary transition-all hover:bg-tertiary hover:ring-tertiary 
+  .btn-secondary-outline {
+    @apply ring-1 ring-secondary medium-15 bg-white px-7 py-[10px] text-secondary transition-all hover:bg-tertiary hover:ring-tertiary;
   }
 
   .max-container {
