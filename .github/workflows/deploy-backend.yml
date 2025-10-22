@@ -6,48 +6,57 @@ on:
     paths:
       - 'backend/**'
       - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch: {}
 
 env:
   SERVICE_NAME: realestate-backend
-  REPO: realestate-repo
   REGION: ${{ secrets.GCP_REGION }}
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  IMAGE: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/realestate-repo/backend:$(echo $GITHUB_SHA | cut -c1-7)
+  REPO: ${{ secrets.AR_REPO }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: google-github-actions/setup-gcloud@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          project_id: ${{ env.PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
 
       - name: Auth to Artifact Registry
         run: |
-          gcloud auth configure-docker ${{ secrets.GCP_REGION }}-docker.pkg.dev --quiet
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build & Push Backend Image
         working-directory: backend
         run: |
-          docker build -t $IMAGE .
-          docker push $IMAGE
+          SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+          IMAGE="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/realestate-backend:${SHORT_SHA}"
+          echo "Building image: $IMAGE"
+
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"
+
+          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy $SERVICE_NAME \
-            --image $IMAGE \
+          gcloud run deploy "${{ env.SERVICE_NAME }}" \
+            --image "${IMAGE}" \
             --platform managed \
-            --region $REGION \
-            --project $PROJECT_ID \
+            --region "${{ env.REGION }}" \
+            --project "${{ env.PROJECT_ID }}" \
             --allow-unauthenticated \
             --port 8080 \
             --set-env-vars PORT=8080 \
-            --set-env-vars DATABASE_URL=${{ secrets.DATABASE_URL }} \
-            --set-env-vars CORS_ORIGIN=${{ secrets.CORS_ORIGIN }} \
-            --set-env-vars AUTH_AUDIENCE=${{ secrets.AUTH_AUDIENCE }} \
-            --set-env-vars AUTH_ISSUER_BASE_URL=${{ secrets.AUTH_ISSUER_BASE_URL }} \
-            --set-env-vars AUTH_TOKEN_SIGNING_ALG=${{ secrets.AUTH_TOKEN_SIGNING_ALG }}
+            --set-env-vars DATABASE_URL='${{ secrets.DATABASE_URL }}' \
+            --set-env-vars CORS_ORIGIN='${{ secrets.CORS_ORIGIN }}' \
+            --set-env-vars AUTH_AUDIENCE='${{ secrets.AUTH_AUDIENCE }}' \
+            --set-env-vars AUTH_ISSUER_BASE_URL='${{ secrets.AUTH_ISSUER_BASE_URL }}' \
+            --set-env-vars AUTH_TOKEN_SIGNING_ALG='${{ secrets.AUTH_TOKEN_SIGNING_ALG }}'
