@@ -28,6 +28,7 @@ const Facilities = ({
         value < 1 ? 'Must have at least one bathroom' : null,
     },
   });
+
   const { bedrooms, parkings, bathrooms } = form.values;
 
   const handleSubmit = () => {
