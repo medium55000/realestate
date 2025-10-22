@@ -23,9 +23,9 @@ const Facilities = ({
     },
     validate: {
       bedrooms: (value) =>
-        value < 1 ? 'Must have at least one bedroom' : null,
+        value < 1 ? 'Must have at least one bedroom ' : null,
       bathrooms: (value) =>
-        value < 1 ? 'Must have at least one bathroom' : null,
+        value < 1 ? 'Must have at least one bathroom ' : null,
     },
   });
 
