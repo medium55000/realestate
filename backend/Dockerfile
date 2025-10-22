@@ -17,8 +17,10 @@ COPY . .
 # Prisma Client 생성
 RUN npx prisma generate
 
-# Express 서버 포트
-EXPOSE 8000
+# # Express 서버 포트
+# EXPOSE 8000
+# Cloud Run은 8080으로 요청을 보냄
+EXPOSE 8080
 
 # 서버 실행 (nodemon X, 실제 배포용)
 CMD ["node", "index.js"]

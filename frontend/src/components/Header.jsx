@@ -41,7 +41,7 @@ const Header = () => {
           {/* logo */}
           <Link to={'/'} className="flex items-center gap-x-2">
             <span className="font-[900] text-[24px]">
-              Casa<span className="font-[600] medium-20">Central</span>
+              EMET<span className="font-[600] medium-20">MORTGAGE</span>
             </span>
           </Link>
           {/* Navbar */}
