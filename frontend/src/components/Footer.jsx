@@ -6,11 +6,10 @@ const Footer = () => {
   return (
     <footer className="max-padd-container mb-4">
       <div className="max-padd-container bg-primary rounded-tr-3xl rounded-tl-3xl pt-12 xl:pt-20 pb-8">
-        <h3 className="h3">Explore real estate opportunities with us?</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni,
-          ducimus iste?
-        </p>
+        <h3 className="h3">
+          Partner with Us to Unlock Real Estate Opportunities.
+        </h3>
+        <p>Find a place that truly feels like home</p>
         <hr className="my-8 bg-slate-900/30 h-[2px]" />
         {/* container */}
         <div
@@ -19,12 +18,11 @@ const Footer = () => {
           <div className="max-w-sm">
             <Link to={'/'} className="flex items-center gap-x-2">
               <span className="font-[900] text-[24px]">
-                Casa<span className="font-[600] medium-20">Central</span>
+                Emet<span className="font-[600] medium-20">Mortageg</span>
               </span>
             </Link>
             <p className="py-4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-              recusandae voluptatibus excepturi nostrum cum delectus repellat?
+              Helping you find the right place, at the right time.
             </p>
             <div className="flexBetween pl-6 h-[3.3rem] bg-white w-full max-w-[366px] rounded-full ring-1 ring-slate-500/5">
               <input
@@ -78,7 +76,7 @@ const Footer = () => {
       </div>
       {/* copyrights */}
       <p className="text-white bg-tertiary medium-14 py-2 px-8 rounded-b-3xl flexBetween ">
-        <span>2024 CasaCentral</span>
+        <span>2025 Emet Mortgage</span>
         <span>All rights reserved</span>
       </p>
     </footer>

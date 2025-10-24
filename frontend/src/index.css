@@ -38,8 +38,11 @@
 }
 
 @layer base {
-  .active-link {
+  /* .active-link {
     @apply bg-secondary text-white;
+  } */
+  .active-link {
+    @apply bg-secondaryBlue text-white;
   }
 
   .h1 {
@@ -76,11 +79,18 @@
     @apply ring-1 ring-tertiary medium-15 bg-transparent px-7 py-[10px] text-tertiary transition-all hover:bg-tertiary hover:text-white;
   }
 
+  /* .btn-secondary {
+    @apply ring-1 ring-secondary medium-15 bg-secondary px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary;
+  } */
   .btn-secondary {
     @apply ring-1 ring-secondaryBlue medium-15 bg-secondaryBlue px-7 py-[10px] text-white transition-all hover:bg-tertiary hover:ring-tertiary;
   }
-  .btn-secondary-outline {
+
+  /* .btn-secondary-outline {
     @apply ring-1 ring-secondary medium-15 bg-white px-7 py-[10px] text-secondary transition-all hover:bg-tertiary hover:ring-tertiary;
+  } */
+  .btn-secondary-outline {
+    @apply ring-1 ring-secondaryBlue medium-15 bg-white px-7 py-[10px] text-secondaryBlue transition-all hover:bg-tertiary hover:ring-tertiary;
   }
 
   .max-container {

@@ -88,7 +88,7 @@ const Property = () => {
       <div className="xl:flexBetween gap-8">
         {/* left side */}
         <div className="flex-1 rounded-2xl bg-white p-2">
-          <h5 className="bold-16 my-1 text-secondary">{data?.city}</h5>
+          <h5 className="bold-16 my-1 text-secondaryBlue">{data?.city}</h5>
           <div className="flexBetween">
             <h4 className="medium-18">{data?.title}</h4>
             <div className="bold-20">${data?.price}.00</div>

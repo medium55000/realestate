@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import CountUp from 'react-countup';
 import aboutImg from '../assets/about.jpg';
 import { RiDoubleQuotesL } from 'react-icons/ri';
-import CountUp from 'react-countup';
 
 const About = () => {
+  // Define the statistics
   const statistics = [
     { label: 'Happy clients', value: 12 },
-    { label: 'Different clients', value: 3 },
-    { label: 'Projects completed', value: 45 },
+    { label: 'Different cities', value: 3 },
+    { label: 'Project completed', value: 45 },
   ];
 
   const [isVisible, setIsVisible] = useState(false);
@@ -22,46 +22,52 @@ const About = () => {
         setIsVisible(isVisible);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
-    // cleanup function to remove the event listener
+
+    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  // Function to format numbers with commas
+  // eslint-disable-next-line no-unused-vars
+  const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <section id="about" className="max-padd-container py-16 xl:py-28">
-      {/* container */}
+      {/* Container */}
       <div className="flex flex-col xl:flex-row gap-10">
-        {/* left side  */}
+        {/* Left side */}
         <div className="flex-1 relative">
           <img
             src={aboutImg}
             alt=""
             className="rounded-3xl rounded-tr-[155px] w-[488px]"
           />
-          <div className="bg-white absolute bottom-16 left-16 max-2-xs p-4 rounded-lg flexCenter flex-col">
+          <div className="bg-white absolute bottom-16 left-16 max-w-xs p-4 rounded-lg flexCenter flex-col">
             <span className="relative bottom-8 p-3 shadow-md bg-white h-12 w-12 flex items-center rounded-full">
               <RiDoubleQuotesL className="text-2xl" />
             </span>
             <p className="text-center relative bottom-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,
-              maioresillum!
+              Buying a home should feel exciting—not overwhelming. Our team is
+              here to make every step clear, simple, and stress-free.
             </p>
           </div>
         </div>
-        {/* right side */}
+        {/* Right side */}
         <div className="flex-1 flex justify-center flex-col">
-          <span className="medium-18">Unveiling Our Journey</span>
-          <h2 className="h2">
-            Our Commitment Crafting Extraordinary Real Estate Experiences
-          </h2>
+          <span className="medium-18">Building Dreams Together</span>
+          <h2 className="h2">Turning Every Home into a New Beginning</h2>
           <p className="py-5">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
-            dolore expedita delectus in a eligendi explicabo laborum eveniet?
-            Rationemodi et earum assumenda est vitae neque
+            We help you find not just a house, but a place to belong. With
+            honesty, care, and innovation, we simplify the process of financing
+            your home and bring your vision of living to life.
           </p>
-          {/* statistics container  */}
+          {/* Statistics Container */}
           <div className="flex flex-wrap gap-4">
             {statistics.map((statistic, index) => (
               <div key={index} className="bg-primary p-4 rounded-lg">
@@ -69,17 +75,17 @@ const About = () => {
                   <CountUp
                     start={isVisible ? 0 : null}
                     end={statistic.value}
-                    duration={0}
+                    duration={10}
                     delay={3}>
                     {({ countUpRef }) => (
                       <h3
                         ref={countUpRef}
-                        className="text-2xl font-semibold"></h3>
+                        className="text-2xl font-semibold "></h3>
                     )}
                   </CountUp>
                   <h4 className="bold-22">k+</h4>
                 </div>
-                <p>{statistic.label}</p>
+                <p className="text-gray-600">{statistic.label}</p>
               </div>
             ))}
           </div>

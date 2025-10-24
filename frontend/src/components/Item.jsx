@@ -21,7 +21,7 @@ const Item = ({ property }) => {
           <HeartBtn id={property?.id} />
         </div>
       </div>
-      <h5 className="bold-16 my-1 text-secondary">{property.city}</h5>
+      <h5 className="bold-16 my-1 text-secondaryBlue">{property.city}</h5>
       <h4 className="medium-18 line-clamp-1">{property.title}</h4>
       {/* info */}
       <div className="flex gap-x-2 py-2">

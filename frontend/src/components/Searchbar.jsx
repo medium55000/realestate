@@ -11,7 +11,7 @@ const Searchbar = ({ filter, setFilter }) => {
         placeholder="Enter an address or city"
         className="bg-transparent border-none outline-none"
       />
-      <FaLocationDot className="relative right-4 text-xl hover:text-secondary" />
+      <FaLocationDot className="relative right-4 text-xl hover:text-secondaryBlue" />
     </div>
   );
 };

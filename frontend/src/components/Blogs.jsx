@@ -5,8 +5,10 @@ const Blogs = () => {
   return (
     <section className="max-padd-container">
       <div className="max-padd-container py-16 xl:py-28 rounded-3xl">
-        <span className="medium-18">Stay Updated with the Latest News!</span>
-        <h2 className="h2">Our Expert Blogs</h2>
+        <span className="medium-18">
+          Stay Informed with Our Latest Insights!
+        </span>
+        <h2 className="h2">Expert Voices & Insights</h2>
         {/* container */}
         <div
           className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3

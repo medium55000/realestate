@@ -8,9 +8,9 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { MantineProvider } from '@mantine/core'; // Import MantineProvider
 const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
-//const redirect_uri = import.meta.env.VITE_REDIRECT_URI;
-const redirect_uri =
-  import.meta.env.VITE_REDIRECT_URI || window.location.origin;
+//const redirect_uri = import.meta.env.VITE_AUTH0_REDIRECT_URI;
+const redirectUri =
+  import.meta.env.VITE_AUTH0_REDIRECT_URI || window.location.origin;
 const audience = import.meta.env.VITE_AUDIENCE;
 
 // ReactDOM.createRoot(
@@ -21,7 +21,7 @@ ReactDOM.render(
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: redirect_uri,
+        redirect_uri: redirectUri,
         ...(audience ? { audience } : {}),
         scope: 'openid profile email',
       }}

@@ -36,7 +36,7 @@ const Navbar = ({ containerStyles }) => {
             : 'flexCenter gap-x-1 rounded-full px-2 py-1'
         }>
         <RiCheckboxMultipleBlankFill />
-        <div>listing</div>
+        <div>Properties</div>
       </NavLink>
       <NavLink
         to={'mailto:medium55000@gmail.com'}

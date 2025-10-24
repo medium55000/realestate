@@ -9,7 +9,7 @@ import { createUser } from '../utils/api';
 import useFavourites from '../hooks/useFavourites.jsx';
 import useBookings from '../hooks/useBookings.jsx';
 
-const audience = import.meta.env.VITE_AUDIENCE;
+const audience = import.meta.env.VITE_AUTH0_AUDIENCE;
 
 const Layout = () => {
   useFavourites();

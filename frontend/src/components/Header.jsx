@@ -5,6 +5,7 @@ import userIcon from '../assets/user.svg';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from './ProfileMenu';
+// import logo from '../assets/logo-emet-blue.png';
 
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -43,6 +44,11 @@ const Header = () => {
             <span className="font-[900] text-[24px]">
               Emet<span className="font-[600] medium-20">Mortageg</span>
             </span>
+            {/* <img
+            src={logo}
+            alt="Emet Mortgage Logo"
+            className="h-[44px] w-auto object-contain cursor-pointer"
+          /> */}
           </Link>
           {/* Navbar */}
           <div className="flexCenter gap-x-4">
@@ -66,12 +72,12 @@ const Header = () => {
           <div className="flexBetween gap-x-3 sm:gap-x-5 bold-16">
             {!menuOpened ? (
               <MdMenu
-                className="xl:hidden cursor-pointer text-3xl hover:text-secondary"
+                className="xl:hidden cursor-pointer text-3xl hover:text-secondaryBlue"
                 onClick={toggleMenu}
               />
             ) : (
               <MdClose
-                className="xl:hidden cursor-pointer text-3xl hover:text-secondary"
+                className="xl:hidden cursor-pointer text-3xl hover:text-secondaryBlue"
                 onClick={toggleMenu}
               />
             )}

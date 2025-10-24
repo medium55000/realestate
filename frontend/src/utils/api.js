@@ -2,9 +2,21 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import { toast } from 'react-toastify';
 
+// export const api = axios.create({
+//   baseURL: import.meta.env.VITE_API_BASE_URL,
+// });
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
+  withCredentials: true,
+  timeout: 10000,
 });
+
+// 공통 에러 처리 함수
+const handleError = (error, msg = 'Something went wrong') => {
+  console.error('API Error:', error);
+  toast.error(msg);
+  throw error;
+};
 
 export const getAllProperties = async () => {
   try {
@@ -15,9 +27,10 @@ export const getAllProperties = async () => {
       throw response.data;
     }
     return response.data;
-  } catch (error) {
-    toast.error("Something's not right");
-    throw error;
+  } catch (err) {
+    // toast.error("Something's not right");
+    // throw error;
+    handleError(err, 'Failed to fetch properties');
   }
 };
 
@@ -31,8 +44,9 @@ export const getProperty = async (id) => {
     }
     return response.data;
   } catch (error) {
-    toast.error("Something's not right");
-    throw error;
+    // toast.error("Something's not right");
+    // throw error;
+    handleError(error, 'Failed to load property details');
   }
 };
 
@@ -48,8 +62,9 @@ export const createUser = async (email, token) => {
       }
     );
   } catch (error) {
-    toast.error("Something's not right, Please Try again");
-    throw error;
+    // toast.error("Something's not right, Please Try again");
+    // throw error;
+    handleError(error, 'User registration failed');
   }
 };
 
@@ -69,8 +84,9 @@ export const bookVisit = async (date, propertyId, email, token) => {
       }
     );
   } catch (error) {
-    toast.error("Something's not right. Please try again.");
-    throw error;
+    // toast.error("Something's not right. Please try again.");
+    // throw error;
+    handleError(error, 'Booking failed');
   }
 };
 
@@ -86,9 +102,9 @@ export const removeBooking = async (id, email, token) => {
       }
     );
   } catch (error) {
-    toast.error("Something's not right. Please try again.");
-
-    throw error;
+    // toast.error("Something's not right. Please try again.");
+    // throw error;
+    handleError(error, 'Failed to cancel booking');
   }
 };
 
@@ -107,7 +123,8 @@ export const toFav = async (id, email, token) => {
       }
     );
   } catch (e) {
-    throw e;
+    //throw e;
+    handleError(e, 'Failed to toggle favorite');
   }
 };
 
@@ -127,8 +144,9 @@ export const getAllFav = async (email, token) => {
     // console.log(res)
     return res.data['favResidenciesID'];
   } catch (e) {
-    toast.error('Something went wrong while fetching favs');
-    throw e;
+    // toast.error('Something went wrong while fetching favs');
+    // throw e;
+    handleError(e, 'Failed to fetch favorites');
   }
 };
 
@@ -148,8 +166,9 @@ export const getAllBookings = async (email, token) => {
     // console.log("res", res)
     return res.data['bookedVisits'];
   } catch (e) {
-    toast.error('Something went wrong while fetching bookings');
-    throw e;
+    // toast.error('Something went wrong while fetching bookings');
+    // throw e;
+    handleError(e, 'Failed to fetch bookings');
   }
 };
 
@@ -170,6 +189,7 @@ export const createResidency = async (data, token, userEmail) => {
     );
     return res.data;
   } catch (error) {
-    throw error;
+    // throw error;
+    handleError(error, 'Failed to create property');
   }
 };
