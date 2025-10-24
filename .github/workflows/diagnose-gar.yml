@@ -7,8 +7,8 @@ permissions:
   contents: read
 
 env:
-  REGION: ${{ secrets.GCP_REGION }} # 예: us-west2
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # 예: realestate-app-475806
+  REGION: ${{ secrets.GCP_REGION }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REPO: realestate-repo
   IMAGE: ${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/realestate-repo/diag:${{ github.sha }}
 
